@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+.main {
+  min-height: 70vh;
+}
+.MuiBox-root {
+  margin: 20px;
+}
+.catgs {
+  margin: 3px;
+}
+.products-cards {
+  display: flex;
+  justify-content: space-around;
+}
+
+.img {
+  height: 200px;
+}
