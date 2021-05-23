@@ -11,7 +11,7 @@ const intialState = {
       description: 'descriptions for the Foods',
     },
   ],
-  active: 'Electronics',
+  active: '',
 };
 
 const catogeriesReducer = (state = intialState, action) => {
