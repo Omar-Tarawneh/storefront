@@ -1,6 +1,7 @@
 const intialState = {
   products: [
     {
+      id: 1,
       catogery: 'Electronics',
       name: 'MackBook',
       description: 'MackBook Description',
@@ -9,6 +10,7 @@ const intialState = {
       count: 10,
     },
     {
+      id: 2,
       catogery: 'Electronics',
       name: 'Iphone 12',
       description: 'Iphone 12 Description',
@@ -17,6 +19,7 @@ const intialState = {
       count: 10,
     },
     {
+      id: 3,
       catogery: 'Foods',
       name: 'Pizza',
       description: 'Pizza Description',
@@ -25,6 +28,7 @@ const intialState = {
       count: 20,
     },
     {
+      id: 4,
       catogery: 'Foods',
       name: 'Burger',
       description: 'Burger Description',
@@ -44,7 +48,14 @@ const productsReducer = (state = intialState, action) => {
         (product) => product.catogery === payload
       );
       return { ...state, activeProducts: state.activeProducts };
-
+    case 'ADD':
+      state.activeProducts = state.activeProducts.map((product) => {
+        if (product.name === payload.name) {
+          product.count -= 1;
+          return product;
+        } else return product;
+      });
+      return { ...state, ...state.activeProducts };
     default:
       return state;
   }
