@@ -3,7 +3,7 @@
 ![UML](./lab-36.png)
 
 - [Netlify](https://storefront-oht.netlify.app/)
-- [PR](https://github.com/Omar-Tarawneh/storefront/pull/1)
+- [PR](https://github.com/Omar-Tarawneh/storefront/pull/2)
 
 ## Getting Started with Create React App
 
