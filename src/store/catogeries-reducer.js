@@ -1,13 +1,13 @@
 const intialState = {
   catogeries: [
     {
-      normalized: 'Electronics',
-      display: 'Electronics',
+      normalized: 'electronics',
+      display: 'electronics',
       description: 'descriptions for the Electronics.',
     },
     {
-      normalized: 'Foods',
-      display: 'Food',
+      normalized: 'food',
+      display: 'foods',
       description: 'descriptions for the Foods',
     },
   ],

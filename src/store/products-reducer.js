@@ -43,15 +43,17 @@ const intialState = {
 const productsReducer = (state = intialState, action) => {
   const { type, payload } = action;
   switch (type) {
+    case 'GET':
+      return { products: payload.products, activeProducts: [] };
     case 'ACTIVE':
       state.activeProducts = state.products.filter(
-        (product) => product.catogery === payload
+        (product) => product.category === payload
       );
       return { ...state, activeProducts: state.activeProducts };
     case 'ADD':
       state.activeProducts = state.activeProducts.map((product) => {
         if (product.name === payload.name) {
-          product.count -= 1;
+          product.inStock -= 1;
           return product;
         } else return product;
       });

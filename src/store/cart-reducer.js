@@ -16,7 +16,7 @@ export default function cartReducer(state = intialState, action) {
       } else {
         let flag = false;
         for (let i = 0; i < state.cart.length; i++) {
-          if (payload.id === state.cart[i].id) {
+          if (payload._id === state.cart[i]._id) {
             state.num += 1;
             state.cart[i].item += 1;
             flag = true;

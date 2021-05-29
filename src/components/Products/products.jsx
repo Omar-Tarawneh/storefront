@@ -1,11 +1,19 @@
+import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import { addCart } from '../../store/cart-reducer.js';
+import { getRemoteData } from '../../store/actions.js';
+
+const api = 'https://api-js401.herokuapp.com/api/v1/products';
 
 function Product(props) {
+  useEffect(() => {
+    props.getRemoteData(api);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <section className="products-cards">
       {props.products.activeProducts.map((product) => {
@@ -13,17 +21,20 @@ function Product(props) {
           <Card
             style={{ width: '18rem' }}
             className={`cards ${product.name}`}
-            key={product.name}
+            key={product._id}
           >
-            <CardMedia className={'img'} image={product.img} />
+            <CardMedia
+              className={'img'}
+              image="http://beepeers.com/assets/images/commerces/default-image.jpg"
+            />
             <CardContent>{product.name}</CardContent>
             <CardContent>Price : {product.price}$</CardContent>
-            <CardContent>in Stock : {product.count}</CardContent>
+            <CardContent>in Stock : {product.inStock}</CardContent>
             <section className="btnn">
               <Button
                 variant="text"
                 onClick={() => {
-                  if (product.count) {
+                  if (product.inStock) {
                     props.addCart(product);
                   } else {
                     alert('the product is out of the Stock :)');
@@ -45,6 +56,6 @@ const mapStateToProps = (state) => {
   return { products: state.products };
 };
 
-const mapDispatchToProps = { addCart };
+const mapDispatchToProps = { addCart, getRemoteData };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Product);
