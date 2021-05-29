@@ -20,7 +20,16 @@ function Product(props) {
             <CardContent>Price : {product.price}$</CardContent>
             <CardContent>in Stock : {product.count}</CardContent>
             <section className="btnn">
-              <Button variant="text" onClick={() => props.addCart(product)}>
+              <Button
+                variant="text"
+                onClick={() => {
+                  if (product.count) {
+                    props.addCart(product);
+                  } else {
+                    alert('the product is out of the Stock :)');
+                  }
+                }}
+              >
                 ADD TO CART
               </Button>
               <Button variant="text">VIEW DETAILS</Button>
